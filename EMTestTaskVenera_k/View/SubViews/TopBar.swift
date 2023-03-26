@@ -22,11 +22,11 @@ struct TopBar: View {
             Spacer()
             
             HStack {
-                Text("Trade  by")
+                Text("Trade by")
                 Text("bata")
                     .foregroundColor(Color("customBlue"))
             }
-            .font(.system(size: 23))
+            .font(.montserratBlack(size: 23))
             .fontWeight(.bold)
             
             Spacer()
@@ -36,6 +36,7 @@ struct TopBar: View {
                     .frame(width: 30)
                 HStack {
                     Text("Location")
+                        .font(.montserratMedium(size: 10))
                     Image(systemName: "arrow.down")
                 }
                 .font(.system(size: 10))
@@ -49,7 +50,7 @@ struct TopBar: View {
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
-            Color.black.ignoresSafeArea().opacity(0.09)
+            Color("background")
             TopBar()
         }
     }

@@ -8,21 +8,41 @@
 import SwiftUI
 
 struct ContentView: View {
+    var vm = ProductViewModel()
     var body: some View {
-        VStack {
-            Text("h")
-                .font(.custom("Montserrat-Bold", size: 50))
-            Text("h")
-                .font(.custom("Montserrat-Regular", size: 50))
-            Text("h")
-                .font(.custom("Montsrrat-Bol", size: 50))
-            Text("h")
-                .font(.custom("Montserrat-Semibold", size: 50))
+        
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 15) {
+                ForEach(vm.latestResponse, id: \.self) { lat in
+                    UniversalGoodCell(latest: lat, imageW: 150, imageH: 230, catW: 50, catH: 20, nameW: 150)
+                }.frame(width: 150, height: 200)
+            }
         }
-    }}
+        .onAppear { vm.getLatest() }
+    }
+}
+   /*ScrollView(.horizontal, showsIndicators: false) {
+    LazyHStack(spacing: 17) {
+        ForEach(vm.latestResponse, id: \.self) { latest in
+            UniversalGoodCell(latest: latest)
+                
+        }
+    }
+    .frame(height: 180)*/
+//    init() {
+//        for fn in UIFont.familyNames {
+//            print(fn)
+//            for ftn in UIFont.fontNames(forFamilyName: fn) {
+//                print("--\(ftn)")
+//            }
+//        }
+//    }}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ZStack {
+            Color("background").ignoresSafeArea()
+            ContentView()
+        }
     }
 }

@@ -11,6 +11,29 @@ struct UniversalGoodCell: View {
     var latest: Latest?
     var flashSale: FlashSale?
     
+    var imageW: CGFloat?
+    var imageH: CGFloat?
+    var discountW: CGFloat?
+    var discountH: CGFloat?
+    var catW:   CGFloat?
+    var catH:   CGFloat?
+    var nameW:  CGFloat?
+    
+    var cornerRad: CGFloat?
+    var catCornerRad: CGFloat?
+    var discountCornerRad: CGFloat?
+    var vStackSpacing: CGFloat?
+    
+    var discountF: CGFloat?
+    var catF:    CGFloat?
+    var nameF:   CGFloat?
+    var priceF:  CGFloat?
+    var buttonF: CGFloat?
+    
+    var buttonPad: CGFloat?
+    var vStackPad: CGFloat?
+    var hStackPad: CGFloat?
+    
     var body: some View {
         ZStack {
             AsyncImage(url: URL(string: (flashSale != nil) ? flashSale!.image_url : latest!.image_url)) { image in
@@ -21,8 +44,8 @@ struct UniversalGoodCell: View {
             } placeholder: {
                 Color.white.opacity(0)
             }
-            .frame(width: 350, height: 450)
-            .cornerRadius(28)
+            .frame(width: imageW!, height: imageH!)
+            .cornerRadius(cornerRad!)
             
             ZStack {
                 VStack {
@@ -31,49 +54,47 @@ struct UniversalGoodCell: View {
                             Spacer()
                             
                             Text("\(flashSale?.discount ?? 00)% off")
-                                .font(.system(size: 16))
-                                .fontWeight(.semibold)
-                                .frame(width: 80, height: 28)
+                                .font(.montserratSemiBold(size: discountF!))
+                                .frame(width: discountW!, height: discountH!)
                                 .background(Color(.red))
-                                .cornerRadius(15)
+                                .cornerRadius(discountCornerRad!)
                         }
                     }
                     Spacer()
                     
                     HStack {
-                        VStack(alignment: .leading, spacing: 17) {
+                        VStack(alignment: .leading, spacing: vStackSpacing!) {
                             Text((flashSale != nil) ? flashSale!.category : latest!.category)
-                                .fontWeight(.bold)
-                                .frame(width: 110, height: 30)
-                                .background(Color("categoryBackground"))
-                                .cornerRadius(15)
+                                .font(.montserratBold(size: catF!))
+                                .frame(width: catW!, height: catH!)
+                                .background(Color("categoryBackground")).opacity(0.8)
+                                .cornerRadius(catCornerRad!)
                                 .foregroundColor(.black)
                             
                             Text((flashSale != nil) ? flashSale!.name : latest!.name)
-                                .frame(width: 200, alignment: .leading)
-                                .font(.title2)
-                                .fontWeight(.semibold)
+                                .frame(width: nameW!, alignment: .leading)
+                                .font(.montserratSemiBold(size: nameF!))
                             
-                            Text("$ \((flashSale != nil) ? String(format: "%g", flashSale!.price) : String(format: "%g", (Double(latest!.price))))")
-                                .fontWeight(.bold)
+                            Text("$ \((flashSale != nil) ? String(format: "3%g", flashSale!.price) : String(format: "3%g", (Double(latest!.price))))")
+                                .font(.montserratBold(size: priceF!))
                         }
-                        Spacer()
+                        .padding(.leading, vStackPad)
                         
                         Button {
                             //
                         } label: {
                             Image(systemName: "plus.circle.fill")
-                                .font(.system(size: 53))
+                                .font(.system(size: buttonF!))
                         }
-                        .padding(.bottom, -80)
+                        .padding(.trailing)
+                        .padding(.bottom, -buttonPad!)
                     }
+                    .padding(.bottom, hStackPad!)
                 }
                 .foregroundColor(.white)
-                .padding(.horizontal, 15)
-                .padding(.vertical)
             }
-            .frame(width: 350, height: 450)
-            .cornerRadius(28)
+            .frame(width: imageW!, height: imageH!)
+            .cornerRadius(cornerRad!)
         }
     }
 }

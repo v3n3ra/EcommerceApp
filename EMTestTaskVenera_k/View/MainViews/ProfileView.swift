@@ -14,23 +14,32 @@ struct ProfileView: View {
             
             VStack(alignment: .center) {
                 Text("Profile")
-                    .font(.montserratHeadline)
-                    .fontWeight(.bold)
-                Circle()
-                    .foregroundColor(Color(.darkGray))
-                    .frame(width: 70)
+                    .font(.montserratBold(size: 16))
+                
+//                ZStack {
+                    Circle()
+                        .foregroundColor(Color(.darkGray))
+                        .frame(width: 70)
+//                    Image("profile")
+//                        .resizable()
+//                        .frame(width: 65)
+//                        .scaledToFit()
+//                        .clipShape(Circle())
+                        
+//                }
                 Button {
                     //
                 } label: {
                     Text("Change photo")
+                        .font(.montserratMedium(size: 9))
                 }
-                .foregroundColor(.gray)
-                .font(.system(size: 10))
+                .foregroundColor(Color(.darkGray))
+                .font(.montserratMedium(size: 28))
                 .padding(.bottom, 17)
                 
                 Text("Satria Adhi Pradana")
-                    .fontWeight(.bold)
-                    .padding(.bottom, 35)
+                    .font(.montserratBold(size: 17))
+                    .padding(.bottom, 33)
                 
                 Button {
                     //

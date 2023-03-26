@@ -10,7 +10,7 @@ import SwiftUI
 struct TypeBar: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 17) {
+            LazyHStack(spacing: 2) {
                 ForEach(ProductType.allCases, id: \.self) { type in
                     VStack {
                         Button {
@@ -19,20 +19,19 @@ struct TypeBar: View {
                                 ZStack {
                                     Circle()
                                         .fill(Color(.lightGray).opacity(0.2))
-                                        .frame(width: 60)
+                                        .frame(width: 40)
                                     Image(type.rawValue)
                                         .resizable()
                                         .renderingMode(.template)
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(width: 32)
+                                        .frame(width: 20)
                                 }
-                                .frame(width: 50)
+                                .frame(width: 30)
                         }
                         .foregroundColor(.black)
                         Text(type.rawValue)
-                            .font(.system(size: 12))
-                            .fontWeight(.semibold)
-                            .frame(width: 75)
+                            .font(.montserratSemiBold(size: 10))
+                            .frame(width: 66)
                             .foregroundColor(Color(.lightGray))
                     }
                 }

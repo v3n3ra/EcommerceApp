@@ -11,26 +11,33 @@ struct Page1View: View {
     var body: some View {
         ZStack {
             Color("background").ignoresSafeArea()
-            
+//            Color.black.ignoresSafeArea().opacity(0.3)
             
             VStack {
                 TopBar()
-                SearchBar()
-                    .frame(width: 300)
-                TypeBar()
-                LatestView()
-                
+                    .padding(.bottom, -30)
+                ScrollView {
+                    SearchBar()
+                        .frame(width: 300)
+                        .padding(.bottom, -20)
+                    TypeBar()
+                        .padding(.bottom, 7)
+                    LatestView()
+                        .padding(.leading, 7)
+                    FlashSaleView()
+                        .padding(.leading, 7)
+                }
             }
         }
-//        .frame(height: 400)
-//            Text("Flash Sale")
-//            FlashSaleView()
-        
     }
 }
 
 struct Page1View_Previews: PreviewProvider {
     static var previews: some View {
-            Page1View()
+//        ZStack {
+//            Color.black.ignoresSafeArea().opacity(0.3)}
+        Page1View()
+        
     }
+    
 }

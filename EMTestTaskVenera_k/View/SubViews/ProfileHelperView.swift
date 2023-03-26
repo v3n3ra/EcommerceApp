@@ -28,13 +28,13 @@ struct ProfileHelperView: View {
                 }
             }
             Text(text)
-                .font(.montserrat)
+                .font(.montserratMedium(size: 14))
             
             Spacer()
             
             if (rightElement != nil) && rightElement!.first! == "$" {
                 Text(rightElement!)
-                    .fontWeight(.medium)
+                    .font(.montserratMedium(size: 17))
             } else if rightElement != nil {
                 Button {
                     //

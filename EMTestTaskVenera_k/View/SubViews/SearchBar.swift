@@ -11,19 +11,17 @@ struct SearchBar: View {
     @State private var text: String = ""
     var body: some View {
         ZStack(alignment: .center) {
-            Color.gray.opacity(0.2)
-                .frame(width: .infinity, height: 36)
+            Color("searchBarBackground")
+                .frame(width: .infinity, height: 28)
                 .cornerRadius(37)
             
             HStack {
-                TextField("What are you looking for ?", text: $text)
-                    .font(.custom("Montserrat", size: 15))
-                    .fontWeight(.black)
+                TextField("            What are you looking for ?", text: $text)
+                    .font(.montserratSemiBold(size: 11))
                     
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(Color(.darkGray))
-//                    .font(.system(size: 20))
-                    
+                    .font(.system(size: 12))
             }
             .padding()
         }
@@ -33,6 +31,9 @@ struct SearchBar: View {
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar()
+        ZStack {
+            Color("background")
+            SearchBar()
+        }
     }
 }
