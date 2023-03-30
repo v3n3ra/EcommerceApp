@@ -1,7 +1,7 @@
 # Test Task for €ff€₡tiv€ ₼obiL€
  
 ## SwiftUI • MVVM • URLSession • JSON • UserDefaults 
-## [Figma] (https://www.figma.com/file/X5X9I8ODgOZoi7WFEjTpFj/Effective-Mobile-TT?node-id=0%3A1&t=84V7O5NERkOhtPUL-1)
+[Figma](https://www.figma.com/file/X5X9I8ODgOZoi7WFEjTpFj/Effective-Mobile-TT?node-id=0%3A1&t=84V7O5NERkOhtPUL-1)
 
 <p>
 <img src="https://github.com/v3n3ra/-ff-ctiv---obiL-E-TestTask/blob/main/Screenshots/Screen.gif" width="200"> <img src="https://github.com/v3n3ra/-ff-ctiv---obiL-E-TestTask/blob/main/Screenshots/Figma.png" width="600">
