@@ -24,11 +24,15 @@ struct Latest: Codable, Hashable {
 struct FlashSale: Codable, Hashable {
     var category: String
     var name: String
-    var price: Double
+    var price: Float
     var discount: Int
     var image_url: String
 }
 
 enum ProductType: String, CaseIterable {
     case Phones, Headphones, Games, Cars, Furniture, Kids
+}
+
+enum Brand: String, CaseIterable {
+    case BMW, XBox, Sony, Samsung, Reebok, NewBalance
 }

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct EMTestTaskVenera_kApp: App {
+    @State var isActive = false
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView(rootIsActive: $isActive)
+            SignUpView()
         }
     }
 }

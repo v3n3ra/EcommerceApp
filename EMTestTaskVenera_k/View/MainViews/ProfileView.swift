@@ -6,27 +6,31 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ProfileView: View {
+    @State private var profileImage = "doggo"
+    @Binding var shouldPopToRoot: Bool
+    @Binding var shouldPopToRoot2: Bool
+    
     var body: some View {
         ZStack {
             Color("background").ignoresSafeArea()
             
             VStack(alignment: .center) {
                 Text("Profile")
-                    .font(.montserratBold(size: 16))
-                
-//                ZStack {
+                    .font(.montserratBold(size: Helpers.width/25))
+                ZStack {
                     Circle()
                         .foregroundColor(Color(.darkGray))
                         .frame(width: 70)
-//                    Image("profile")
-//                        .resizable()
-//                        .frame(width: 65)
-//                        .scaledToFit()
-//                        .clipShape(Circle())
-                        
-//                }
+                    
+                    Image(profileImage)
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(Circle())
+                        .frame(width: 68)
+                }
                 Button {
                     //
                 } label: {
@@ -34,7 +38,7 @@ struct ProfileView: View {
                         .font(.montserratMedium(size: 9))
                 }
                 .foregroundColor(Color(.darkGray))
-                .font(.montserratMedium(size: 28))
+                .font(.montserratMedium(size: Helpers.width/26))
                 .padding(.bottom, 17)
                 
                 Text("Satria Adhi Pradana")
@@ -46,12 +50,15 @@ struct ProfileView: View {
                 } label: {
                     HStack {
                         Image(systemName: "square.and.arrow.up")
-                        Text("         Upload item")
+                            .fontWeight(.bold)
+                            .font(.system(size: Helpers.width/30))
+                        Text("Upload item")
+                            .font(.montserratSemiBold(size: Helpers.width/28))
+                            .padding(.leading, Helpers.width/11)
                     }
-                    .fontWeight(.medium)
                     .padding(.leading, -60)
                 }
-                .frame(width: 320, height: 45)
+                .frame(width: Helpers.width/1.3, height: 45)
                 .foregroundColor(.white)
                 .background(Color("customBlue"), in: RoundedRectangle(cornerRadius: 15))
                 .padding(.bottom, 13)
@@ -63,22 +70,30 @@ struct ProfileView: View {
                     ProfileHelperView(text: "Trade history", rightElement: "arrow")
                     ProfileHelperView(icon: "restore", text: "Restore Purchase", rightElement: "arrow")
                     ProfileHelperView(icon: "help", text: "Help")
-                    ProfileHelperView(icon: "logOut", text: "Log out")
+                    
+                    ZStack {
+                        Button {
+                            shouldPopToRoot = false
+                            shouldPopToRoot2 = false
+                        } label: {
+                            ProfileHelperView(icon: "logOut", text: "Log out").foregroundColor(.black)
+                        }
+                    }
                 }
                 
                 Spacer()
             }
+            .padding(.top, Helpers.width/20)
+        }
+        .toolbar {
+            CustomBackButton()
         }
     }
 }
 
+
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(shouldPopToRoot: .constant(false), shouldPopToRoot2: .constant(false))
     }
 }
-/*arrow
- folder
- logOut
- help
- restore*/

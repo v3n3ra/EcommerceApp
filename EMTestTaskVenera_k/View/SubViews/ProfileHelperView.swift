@@ -11,12 +11,13 @@ struct ProfileHelperView: View {
     var icon: String?
     var text: String
     var rightElement: String?
+    
     var body: some View {
         HStack {
             ZStack {
                 Circle()
                     .foregroundColor(.gray).opacity(0.2)
-                    .frame(width: 45)
+                    .frame(width: Helpers.width/10)
                     
                 if (icon != nil) {
                     Image(icon!)
@@ -27,14 +28,15 @@ struct ProfileHelperView: View {
                     Image("folder")
                 }
             }
+            
             Text(text)
-                .font(.montserratMedium(size: 14))
+                .font(.montserratMedium(size: Helpers.width/27))
             
             Spacer()
             
             if (rightElement != nil) && rightElement!.first! == "$" {
                 Text(rightElement!)
-                    .font(.montserratMedium(size: 17))
+                    .font(.montserratMedium(size: Helpers.width/28))
             } else if rightElement != nil {
                 Button {
                     //
@@ -43,16 +45,17 @@ struct ProfileHelperView: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .frame(width: 22)
+                .frame(width: Helpers.width/25)
             } 
         }
-        .padding(.horizontal, 30)
+        .padding(.horizontal, Helpers.width/10)
+        .padding(.bottom, Helpers.height/115)
     }
 }
 
 struct ProfileHelperView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileHelperView(icon: "logOut", text: "Trade Store", rightElement: "arrow")
+        ProfileHelperView(icon: "logOut", text: "Trade Store", rightElement: "$ 1593")
     }
 }
 

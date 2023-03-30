@@ -12,13 +12,15 @@ struct SearchBar: View {
     var body: some View {
         ZStack(alignment: .center) {
             Color("searchBarBackground")
-                .frame(width: .infinity, height: 28)
+                .frame(height: 28)
                 .cornerRadius(37)
             
             HStack {
-                TextField("            What are you looking for ?", text: $text)
+
+                TextField("What are you looking for ?", text: $text)
                     .font(.montserratSemiBold(size: 11))
-                    
+                    .padding(.leading, Helpers.width/12.3)
+                
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(Color(.darkGray))
                     .font(.system(size: 12))

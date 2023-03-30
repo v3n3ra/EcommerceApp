@@ -10,12 +10,21 @@ import SwiftUI
 struct LogInView: View {
     @State private var firstName = ""
     @State private var password = ""
+    @State private var showPassword = false
+    @State private var userDoesntExist = false
+    @State private var performNavigation = false
+    @State private var emptyFields = false
+    
     @FocusState var focus1: Bool
     @FocusState var focus2: Bool
-    @State private var showPassword = false
+    
+    @Binding var rootIsActive: Bool
+    @Binding var rootIsActive2: Bool
     
     var body: some View {
         ZStack {
+            CustomBackButton()
+            
             Color("background").ignoresSafeArea()
             
             VStack {
@@ -28,18 +37,17 @@ struct LogInView: View {
                 
                 TextField("First name", text: $firstName)
                     .font(.montserratRegular(size: 13))
-                    .frame(height: 30)
+                    .frame(width: Helpers.width/1.3, height: Helpers.height/30)
                     .background(Color("textFieldBackground"))
                     .cornerRadius(15)
+                    .autocorrectionDisabled()
                 
                 ZStack {
                     Rectangle()
-                        .foregroundColor(Color("textFieldBackground"))
-                        .frame(width: .infinity, height: 30)
+                        .frame(width: Helpers.width/1.3, height: Helpers.height/30).foregroundColor(Color("textFieldBackground"))
                         .cornerRadius(15)
                     
-                    HStack {
-                        
+                    ZStack {
                         ZStack {
                             TextField("Password", text: $password)
                                 .font(.montserratRegular(size: 13))
@@ -60,26 +68,35 @@ struct LogInView: View {
                                 .padding(.vertical, 25)
                         }
                         
-                        if !password.isEmpty {
+                        HStack {
+                            Spacer()
+                            
                             Button {
                                 showPassword.toggle()
                                 if showPassword { focus1 = true } else { focus2 = true }
                             } label: {
-                                Image(systemName: self.showPassword ? "eye.slash.fill" : "eye.fill").font(.system(size: 14, weight: .regular))
+                                Image(systemName: self.showPassword ? "eye.fill" : "eye.slash.fill").font(.system(size: 14, weight: .regular))
                                     .foregroundColor(Color(.darkGray))
                                     .padding()
                             }
                         }
                     }
                 }
-                
-                Spacer()
+                .padding(.bottom, 70)
                 
                 Button {
-                    //
+                        if firstName.isEmpty || password.isEmpty {
+                            emptyFields = true
+                        } else {
+                            if UserDefaults.standard.string(forKey: "firstName") == firstName {
+                                performNavigation = true
+                            } else {
+                            userDoesntExist = true
+                        }
+                    }
                 } label: {
                     Text("Login")
-                        .font(.montserratBold(size: 14))
+                        .font(.montserratBold(size: Helpers.height/59))
                         .frame(height: 50)
                 }
                 .foregroundColor(.white)
@@ -87,6 +104,16 @@ struct LogInView: View {
                 .background(Color("customBlue"))
                 .cornerRadius(15)
                 .padding(.vertical, 15)
+                .alert("User doesn't exist", isPresented: $userDoesntExist) {
+                    Button("OK", role: .cancel) {}
+                }
+                .alert("Submit all information", isPresented: $emptyFields) {
+                    Button("OK", role: .cancel) {}
+                }
+                ///NavigationLink for the button above
+                    NavigationLink("", destination: CustomTabBar(rootIsActive: $rootIsActive, rootIsActive2: $rootIsActive2), isActive: $performNavigation)
+                        .isDetailLink(false)
+                        .navigationBarBackButtonHidden(true)
                 
                 Spacer()
                 Spacer()
@@ -96,11 +123,10 @@ struct LogInView: View {
             .multilineTextAlignment(.center)
         }
     }
- 
 }
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
-        LogInView()
+        LogInView(rootIsActive: .constant(false), rootIsActive2: .constant(false))
     }
 }

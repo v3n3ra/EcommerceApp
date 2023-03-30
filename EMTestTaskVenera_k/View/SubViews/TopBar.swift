@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TopBar: View {
+    @Binding var rootIsActive: Bool
+    @Binding var rootIsActive2: Bool
+    
     var body: some View {
         HStack(alignment: .top) {
             Button {
@@ -18,7 +21,7 @@ struct TopBar: View {
                     .font(.system(size: 27))
             }
             .foregroundColor(.black)
-                        
+            
             Spacer()
             
             HStack {
@@ -32,26 +35,43 @@ struct TopBar: View {
             Spacer()
             
             VStack {
-                Circle()
-                    .frame(width: 30)
+                NavigationLink(destination: ProfileView(shouldPopToRoot: $rootIsActive, shouldPopToRoot2: $rootIsActive2)) {
+                    ZStack {
+                        Circle()
+                        Image("doggo")
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .frame(width: Helpers.width/13)
+                    }
+                }
+                .isDetailLink(false)
+                .navigationTitle("")
+                
                 HStack {
                     Text("Location")
-                        .font(.montserratMedium(size: 10))
-                    Image(systemName: "arrow.down")
+                        .font(.montserratMedium(size: 12))
+                    Image("arrow.down")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: Helpers.width/22)
+                        .padding(.leading, -8)
                 }
                 .font(.system(size: 10))
             }
             .foregroundColor(Color(.darkGray))
         }
+        .frame(height: Helpers.height/16)
         .padding()
     }
 }
+
 
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color("background")
-            TopBar()
+            TopBar(rootIsActive: .constant(false), rootIsActive2: .constant(false))
         }
     }
 }
