@@ -1,6 +1,6 @@
 # Test Task for €ff€₡tiv€ ₼obiL€
  
-## SwiftUI • MVVM • URLSession • JSON • UserDefaults 
+SwiftUI • MVVM • URLSession • JSON • UserDefaults 
 [Figma](https://www.figma.com/file/X5X9I8ODgOZoi7WFEjTpFj/Effective-Mobile-TT?node-id=0%3A1&t=84V7O5NERkOhtPUL-1)
 
 <p>
