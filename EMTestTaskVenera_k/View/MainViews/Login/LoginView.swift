@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct LogInView: View {
+    @EnvironmentObject private var coordinator: Coordinator
+    
     @State private var firstName = ""
     @State private var password = ""
     @State private var showPassword = false
     @State private var userDoesntExist = false
-    @State private var performNavigation = false
     @State private var emptyFields = false
     
     @FocusState var focus1: Bool
     @FocusState var focus2: Bool
-    
-    @Binding var rootIsActive: Bool
-    @Binding var rootIsActive2: Bool
-    
+
     var body: some View {
         ZStack {
             CustomBackButton()
@@ -89,7 +87,7 @@ struct LogInView: View {
                             emptyFields = true
                         } else {
                             if UserDefaults.standard.string(forKey: "firstName") == firstName {
-                                performNavigation = true
+                                coordinator.push(.tabBar)
                             } else {
                             userDoesntExist = true
                         }
@@ -110,10 +108,6 @@ struct LogInView: View {
                 .alert("Submit all information", isPresented: $emptyFields) {
                     Button("OK", role: .cancel) {}
                 }
-                ///NavigationLink for the button above
-                    NavigationLink("", destination: CustomTabBar(rootIsActive: $rootIsActive, rootIsActive2: $rootIsActive2), isActive: $performNavigation)
-                        .isDetailLink(false)
-                        .navigationBarBackButtonHidden(true)
                 
                 Spacer()
                 Spacer()
@@ -127,6 +121,6 @@ struct LogInView: View {
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
-        LogInView(rootIsActive: .constant(false), rootIsActive2: .constant(false))
+        LogInView()
     }
 }

@@ -9,9 +9,10 @@ import SwiftUI
 import PhotosUI
 
 struct ProfileView: View {
+    
+    @EnvironmentObject private var coordinator: Coordinator
+    
     @State private var profileImage = "doggo"
-    @Binding var shouldPopToRoot: Bool
-    @Binding var shouldPopToRoot2: Bool
     
     var body: some View {
         ZStack {
@@ -73,8 +74,10 @@ struct ProfileView: View {
                     
                     ZStack {
                         Button {
-                            shouldPopToRoot = false
-                            shouldPopToRoot2 = false
+                            withAnimation {
+                                coordinator.popToRoot()
+                            }
+                            
                         } label: {
                             ProfileHelperView(icon: "logOut", text: "Log out").foregroundColor(.black)
                         }
@@ -94,6 +97,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView(shouldPopToRoot: .constant(false), shouldPopToRoot2: .constant(false))
+        ProfileView()
     }
 }

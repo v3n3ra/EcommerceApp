@@ -32,6 +32,8 @@
 		159E5B6929CEF23D006898CC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E5B6829CEF23D006898CC /* ProfileView.swift */; };
 		159E5B6B29CEF3B8006898CC /* ProfileHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E5B6A29CEF3B8006898CC /* ProfileHelperView.swift */; };
 		159E5B7229CF06EF006898CC /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E5B7129CF06EF006898CC /* Font.swift */; };
+		15B3EF8A29D5A22C00D1ADDB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3EF8929D5A22C00D1ADDB /* Coordinator.swift */; };
+		15B3EF8C29D5C15E00D1ADDB /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B3EF8B29D5C15E00D1ADDB /* CoordinatorView.swift */; };
 		15CF695F29CF2A070041D0D9 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15CF695E29CF2A050041D0D9 /* Montserrat-SemiBold.ttf */; };
 		15CF696129CF2A0D0041D0D9 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15CF696029CF2A0A0041D0D9 /* Montserrat-Bold.ttf */; };
 		15CF696329CF2A120041D0D9 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15CF696229CF2A100041D0D9 /* Montserrat-Medium.ttf */; };
@@ -67,6 +69,8 @@
 		159E5B6A29CEF3B8006898CC /* ProfileHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHelperView.swift; sourceTree = "<group>"; };
 		159E5B7129CF06EF006898CC /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		159E5B7329CF1424006898CC /* EMTestTaskVenera-k-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EMTestTaskVenera-k-Info.plist"; sourceTree = SOURCE_ROOT; };
+		15B3EF8929D5A22C00D1ADDB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		15B3EF8B29D5C15E00D1ADDB /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		15CF695E29CF2A050041D0D9 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		15CF696029CF2A0A0041D0D9 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		15CF696229CF2A100041D0D9 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				159E5B7329CF1424006898CC /* EMTestTaskVenera-k-Info.plist */,
 				159E5B3629CEA1CE006898CC /* EMTestTaskVenera_kApp.swift */,
 				156D6A5829D05FB60045F194 /* Helpers */,
+				15B3EF8D29D5C2F100D1ADDB /* Coordinator */,
 				159E5B5229CEA384006898CC /* VM */,
 				159E5B5129CEA37D006898CC /* Model */,
 				159E5B6129CEDB7D006898CC /* View */,
@@ -201,6 +206,15 @@
 				156D6A4429CFFC0F0045F194 /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		15B3EF8D29D5C2F100D1ADDB /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				15B3EF8929D5A22C00D1ADDB /* Coordinator.swift */,
+				15B3EF8B29D5C15E00D1ADDB /* CoordinatorView.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,8 +300,10 @@
 				15E2A28F29D4037300CEB083 /* CustomTabBar.swift in Sources */,
 				156D6A4529CFFC0F0045F194 /* SignUpView.swift in Sources */,
 				159E5B6529CEEBCD006898CC /* TopBar.swift in Sources */,
+				15B3EF8A29D5A22C00D1ADDB /* Coordinator.swift in Sources */,
 				157F6B6829D17853004A95BE /* GradientPlaceholderCell.swift in Sources */,
 				159E5B6329CEE8AD006898CC /* SearchBar.swift in Sources */,
+				15B3EF8C29D5C15E00D1ADDB /* CoordinatorView.swift in Sources */,
 				159E5B6929CEF23D006898CC /* ProfileView.swift in Sources */,
 				156D6A5529D04C180045F194 /* ViewAllRow.swift in Sources */,
 				159E5B5829CEBD82006898CC /* FlashSaleView.swift in Sources */,

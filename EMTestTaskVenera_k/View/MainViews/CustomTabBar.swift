@@ -12,15 +12,12 @@ struct CustomTabBar: View {
     
     @State private var selectedIndex = 0
     
-    @Binding var rootIsActive: Bool
-    @Binding var rootIsActive2: Bool
-    
     var body: some View {
         ZStack {
             ZStack {
                 switch selectedIndex {
                 case 0:
-                    Page1View(rootIsActive: $rootIsActive, rootIsActive2: $rootIsActive2)
+                    Page1View()
                 case 1:
                     GradientPlaceholderCell()
                 case 2:
@@ -28,9 +25,9 @@ struct CustomTabBar: View {
                 case 3:
                     GradientPlaceholderCell()
                 case 4:
-                    ProfileView(shouldPopToRoot: $rootIsActive, shouldPopToRoot2: $rootIsActive2)
+                    ProfileView()
                 default:
-                    Page1View(rootIsActive: $rootIsActive, rootIsActive2: $rootIsActive2)
+                    Page1View()
                 }
             }
             
@@ -77,6 +74,6 @@ struct CustomTabBar: View {
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabBar(rootIsActive: .constant(false), rootIsActive2: .constant(false))
+        CustomTabBar()
     }
 }

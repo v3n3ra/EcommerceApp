@@ -10,16 +10,12 @@ import SwiftUI
 struct Page1View: View {
     @StateObject private var vm = ProductViewModel()
     
-    @Binding var rootIsActive: Bool
-    @Binding var rootIsActive2: Bool
-    @State var isPresenting = false
-    
     var body: some View {
         ZStack {
             Color("background").ignoresSafeArea()
             
             VStack {
-                TopBar(rootIsActive: $rootIsActive, rootIsActive2: $rootIsActive2)
+                TopBar()
                     .padding(.bottom, -25)
                 
                 ScrollView {
@@ -58,6 +54,6 @@ struct Page1View: View {
 
 struct Page1View_Previews: PreviewProvider {
     static var previews: some View {
-        Page1View(rootIsActive: .constant(false), rootIsActive2: .constant(false))
+        Page1View()
     }
 }

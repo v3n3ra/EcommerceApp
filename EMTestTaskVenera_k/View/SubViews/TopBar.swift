@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct TopBar: View {
-    @Binding var rootIsActive: Bool
-    @Binding var rootIsActive2: Bool
+    @EnvironmentObject private var coordinator: Coordinator
     
     var body: some View {
         HStack(alignment: .top) {
@@ -35,7 +34,10 @@ struct TopBar: View {
             Spacer()
             
             VStack {
-                NavigationLink(destination: ProfileView(shouldPopToRoot: $rootIsActive, shouldPopToRoot2: $rootIsActive2)) {
+                
+                Button {
+                    coordinator.push(.profile)
+                } label: {
                     ZStack {
                         Circle()
                         Image("doggo")
@@ -45,8 +47,6 @@ struct TopBar: View {
                             .frame(width: Helpers.width/13)
                     }
                 }
-                .isDetailLink(false)
-                .navigationTitle("")
                 
                 HStack {
                     Text("Location")
@@ -71,7 +71,7 @@ struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color("background")
-            TopBar(rootIsActive: .constant(false), rootIsActive2: .constant(false))
+            TopBar()
         }
     }
 }
