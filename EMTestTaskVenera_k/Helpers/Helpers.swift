@@ -13,7 +13,7 @@ struct Helpers {
     
     
     static func emailValidator(_ email: String) -> Bool {
-        if email.count > 15 {
+        if email.count > 25 {
             return false
         }
         let format = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
