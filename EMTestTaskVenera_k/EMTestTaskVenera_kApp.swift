@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct EMTestTaskVenera_kApp: App {
+    
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
+//            Page2View()
         }
     }
 }

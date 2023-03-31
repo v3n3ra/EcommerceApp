@@ -34,9 +34,9 @@ struct Page1View: View {
                         }
                     } else {
                         VStack {
-                            ViewAllRow(text: "Latest")
+                            ViewAllRow(text: "Latest", goToDetail: false)
                             GradientAnimationView(spacing: 15, width: Helpers.width/3-15, height: Helpers.height/5, cornerRad: 10)
-                            ViewAllRow(text: "Flash Sale")
+                            ViewAllRow(text: "Flash Sale", goToDetail: true)
                             GradientAnimationView(spacing: 11, width: Helpers.width/2-13, height: Helpers.height/3.5, cornerRad: 13)
                         }
                     }

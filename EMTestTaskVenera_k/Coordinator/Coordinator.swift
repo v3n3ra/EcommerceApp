@@ -35,14 +35,16 @@ final class Coordinator: ObservableObject {
         case .profile:
             ProfileView()
         case .tabBar:
-            CustomTabBar()   
+            CustomTabBar()
+        case .detail:
+            Page2View()
         }
     }
 }
 
 
 enum Page: String, CaseIterable, Identifiable {
-    case signUp, logIn, profile, tabBar
+    case signUp, logIn, profile, tabBar, detail
     
     var id: String { self.rawValue }
 }

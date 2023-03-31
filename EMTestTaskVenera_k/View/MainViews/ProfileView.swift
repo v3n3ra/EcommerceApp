@@ -6,13 +6,9 @@
 //
 
 import SwiftUI
-import PhotosUI
 
 struct ProfileView: View {
-    
     @EnvironmentObject private var coordinator: Coordinator
-    
-    @State private var profileImage = "doggo"
     
     var body: some View {
         ZStack {
@@ -26,12 +22,13 @@ struct ProfileView: View {
                         .foregroundColor(Color(.darkGray))
                         .frame(width: 70)
                     
-                    Image(profileImage)
+                    Image("doggo")
                         .resizable()
                         .scaledToFit()
                         .clipShape(Circle())
                         .frame(width: 68)
                 }
+                
                 Button {
                     //
                 } label: {
