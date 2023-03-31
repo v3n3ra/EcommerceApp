@@ -46,6 +46,7 @@ struct CustomTabBar: View {
                                 selectedIndex = section
                             } label: {
                                 Spacer()
+                                
                                 ZStack {
                                     Circle()
                                         .frame(width: Helpers.width/8)

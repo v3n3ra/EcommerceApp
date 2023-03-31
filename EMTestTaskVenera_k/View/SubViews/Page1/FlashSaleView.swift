@@ -15,7 +15,6 @@ struct FlashSaleView: View {
     var vStackSpacing: CGFloat? = 10
     var nameF: CGFloat? = 13
     
-    
     var body: some View {
         VStack {
             Spacer()

@@ -71,10 +71,7 @@ struct ProfileView: View {
                     
                     ZStack {
                         Button {
-                            withAnimation {
                                 coordinator.popToRoot()
-                            }
-                            
                         } label: {
                             ProfileHelperView(icon: "logOut", text: "Log out").foregroundColor(.black)
                         }

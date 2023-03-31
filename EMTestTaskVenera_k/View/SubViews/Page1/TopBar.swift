@@ -34,7 +34,6 @@ struct TopBar: View {
             Spacer()
             
             VStack {
-                
                 Button {
                     coordinator.push(.profile)
                 } label: {
@@ -47,7 +46,6 @@ struct TopBar: View {
                             .frame(width: Helpers.width/13)
                     }
                 }
-                .animation(.default, value: 1)
                 
                 HStack {
                     Text("Location")
@@ -62,6 +60,7 @@ struct TopBar: View {
             }
             .foregroundColor(Color(.darkGray))
         }
+        .navigationBarBackButtonHidden()
         .frame(height: Helpers.height/16)
         .padding()
     }

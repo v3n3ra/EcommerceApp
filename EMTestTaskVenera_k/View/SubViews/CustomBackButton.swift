@@ -26,9 +26,3 @@ struct CustomBackButton: View {
             }
     }
 }
-
-//struct CustomBackButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomBackButton()
-//    }
-//}

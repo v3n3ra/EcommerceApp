@@ -8,20 +8,21 @@
 import SwiftUI
 
 struct SearchBar: View {
-    
     @State private var text: String = ""
     
     var body: some View {
         ZStack(alignment: .center) {
             VStack {
                 ZStack {
+                    Rectangle()
+                        .frame(maxWidth: .infinity)
+                        .frame(width: Helpers.width/1.3, height: 28)
+                        .foregroundColor(Color("searchBarBackground"))
+                        .cornerRadius(37)
                     TextField("What are you looking for ?", text: $text)
                         .frame(height: 28)
-                        .frame(maxWidth: .infinity)
-                        .background(Color("searchBarBackground"))
-                        .cornerRadius(37)
-                        .font(.montserratSemiBold(size: 11))
-                        .padding(.leading, Helpers.width/12.3)
+                        .font(.montserratMedium(size: 11))
+                        .padding(.leading, Helpers.width/5.3)
                     
                     HStack {
                         Spacer()

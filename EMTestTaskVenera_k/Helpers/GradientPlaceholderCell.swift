@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GradientPlaceholderCell: View {
-    
     var body: some View {
         LinearGradient(gradient: Gradient(colors: [Color("tabBarSelection"), .white]), startPoint: .bottomLeading, endPoint: .topTrailing)
             .ignoresSafeArea()

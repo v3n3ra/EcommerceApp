@@ -21,6 +21,7 @@ struct LogInView: View {
 
     var body: some View {
         ZStack {
+            ///button in case the user wants to go back
             CustomBackButton()
             
             Color("background").ignoresSafeArea()
@@ -31,7 +32,6 @@ struct LogInView: View {
                 Text("Welcome back")
                     .font(.montserratSemiBold(size: 28))
                     .padding(.bottom, 80)
-                
                 
                 TextField("First name", text: $firstName)
                     .font(.montserratRegular(size: 13))
@@ -116,6 +116,7 @@ struct LogInView: View {
             .padding(.horizontal, 50)
             .multilineTextAlignment(.center)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

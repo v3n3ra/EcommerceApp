@@ -62,9 +62,3 @@ struct AsyncImageCell: View {
         }
     }
 }
-
-//struct AsyncImageCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AsyncImageCell()
-//    }
-//}

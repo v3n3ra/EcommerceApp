@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct UniversalGoodCell: View {
-    
     var latest: Latest?
     var flashSale: FlashSale?
     
@@ -43,7 +42,6 @@ struct UniversalGoodCell: View {
                                 .cornerRadius(imageW!/20)
                         }
                         .padding(.trailing, 10)
-                        
                     }
                     
                     Spacer()
@@ -67,7 +65,6 @@ struct UniversalGoodCell: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.leading, 5)
-                        
                         
                         Spacer()
                         

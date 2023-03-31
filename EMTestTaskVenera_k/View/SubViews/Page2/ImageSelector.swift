@@ -56,10 +56,3 @@ struct ImageSelector: View {
         }
     }
 }
-//
-//struct ImageSelector_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ImageSelector(vm: ProductViewModel())
-//    }
-//}
-//

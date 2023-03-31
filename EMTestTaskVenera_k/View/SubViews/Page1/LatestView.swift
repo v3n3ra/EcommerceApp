@@ -15,7 +15,6 @@ struct LatestView: View {
     var vStackSpacing: CGFloat? = 8
     var nameF: CGFloat? = 10
     
-    
     var body: some View {
         VStack {
             ViewAllRow(text: "Latest", goToDetail: false)

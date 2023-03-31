@@ -18,7 +18,7 @@ struct ProfileHelperView: View {
                 Circle()
                     .foregroundColor(.gray).opacity(0.2)
                     .frame(width: Helpers.width/10)
-                    
+                
                 if (icon != nil) {
                     Image(icon!)
                         .resizable()
@@ -46,7 +46,7 @@ struct ProfileHelperView: View {
                         .scaledToFit()
                 }
                 .frame(width: Helpers.width/25)
-            } 
+            }
         }
         .padding(.horizontal, Helpers.width/10)
         .padding(.bottom, Helpers.height/115)

@@ -9,7 +9,6 @@ import SwiftUI
 
 @MainActor
 final class Coordinator: ObservableObject {
-    
     @Published var path = NavigationPath()
     @Published var page: Page?
     

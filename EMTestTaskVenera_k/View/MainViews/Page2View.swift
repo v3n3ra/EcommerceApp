@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct Page2View: View {
-    
-    @StateObject private var vm = ProductViewModel()
+    @StateObject var vm = ProductViewModel()
     
     @State private var selectedIndex = 0
     
@@ -36,6 +35,6 @@ struct Page2View: View {
 
 struct Page2View_Previews: PreviewProvider {
     static var previews: some View {
-        Page2View()
+        Page2View(vm: ProductViewModel())
     }
 }

@@ -16,23 +16,23 @@ struct GradientAnimationView: View {
     var cornerRad: CGFloat?
     
     var body: some View {
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: spacing) {
-                    ForEach(1..<5) {_ in
-                        LinearGradient(colors: [Color(.white), Color(.lightGray)],
-                                       startPoint: animateGradient ? .top : .topTrailing,
-                                       endPoint: animateGradient ? .bottomLeading : .trailing)
-                        .frame(width: width, height: height)
-                        .scaledToFill()
-                        .cornerRadius(cornerRad!)
-                        .onAppear {
-                            withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: true)) {
-                                animateGradient.toggle()
-                            }
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: spacing) {
+                ForEach(1..<5) {_ in
+                    LinearGradient(colors: [Color(.white), Color(.lightGray)],
+                                   startPoint: animateGradient ? .top : .topTrailing,
+                                   endPoint: animateGradient ? .bottomLeading : .trailing)
+                    .frame(width: width, height: height)
+                    .scaledToFill()
+                    .cornerRadius(cornerRad!)
+                    .onAppear {
+                        withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: true)) {
+                            animateGradient.toggle()
                         }
                     }
+                }
             }
-                .padding(.leading, 7)
+            .padding(.leading, 7)
         }
     }
 }
