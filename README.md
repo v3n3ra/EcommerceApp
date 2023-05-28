@@ -1,4 +1,4 @@
-# Test Task Ecommerce App
+# Ecommerce App
 
 SwiftUI • MVVM + Coordinator • URLSession • JSON • UserDefaults 
 
