@@ -1,4 +1,4 @@
-# Test Task for €ff€₡tiv€ ₼obiL€
+# Test Task Ecommerce App
 
 SwiftUI • MVVM + Coordinator • URLSession • JSON • UserDefaults 
 
